@@ -2,6 +2,10 @@ const express = require("express");
 const dotenv = require("dotenv");
 const pool = require("./db");
 const importRoutes = require("./routes/importRoutes");
+const groupRoutes = require("./routes/groupRoutes");
+const expenseRoutes = require("./routes/expenseRoutes");
+const authRoutes = require("./routes/authRoutes");
+const settlementRoutes = require("./routes/settlementRoutes");
 
 dotenv.config();
 
@@ -9,6 +13,10 @@ const app = express();
 
 app.use(express.json());
 app.use("/api", importRoutes);
+app.use("/api", groupRoutes);
+app.use("/api", expenseRoutes);
+app.use("/api", authRoutes);
+app.use("/api", settlementRoutes);
 
 
 app.get("/", async (req, res) => {

@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create configured Axios instance
 const API = axios.create({
-  baseURL: "", // Since Vite proxy maps /api requests
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 // Auto-inject JWT token if present in localStorage
